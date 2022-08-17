@@ -1,4 +1,4 @@
 x = int(input("Número 1:"))
 y = int(input("Número 2:"))
-
-print(f"SOMA = { y +  x }")
+produto = x * y 
+print(f"PROD = { y +  x }")
