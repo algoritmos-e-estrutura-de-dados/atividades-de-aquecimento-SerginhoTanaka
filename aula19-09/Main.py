@@ -11,4 +11,5 @@ lista.adicionar(5)
 
 
 lista.show()
-lista.remover()
+lista.remover(3)
+lista.show()

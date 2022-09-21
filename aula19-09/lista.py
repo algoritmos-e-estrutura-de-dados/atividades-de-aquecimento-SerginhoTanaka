@@ -16,7 +16,9 @@ class Lista:
             self.adicionar_no_fim(valor)
 
     def adicionar_no_inicio(self, valor):
-        print('inserindo no inicio')
+        novo = Node(valor)
+        novo.proximo = self.inicio
+        self.inicio = novo
 
     def adicionar_no_fim(self, valor):
         if (self.inicio == None):
@@ -27,15 +29,21 @@ class Lista:
                 aux = aux.proximo
 
             aux.proximo = Node(valor, None)
-
+            aux.proximo.anterior = aux
     def remover(self, valor):
-        anterior = None
         aux = self.inicio
-        while(aux.proximo != None):
-            if (aux.anterior == aux):
-                anterior = aux + 1
-                print(anterior.valor)
-    #lista dinamica
+        if aux.valor == valor:
+           #aux.valor = None
+            self.inicio = aux.proximo
+        else:
+            while aux.proximo is not None:
+                aux = aux.proximo
+                if aux.valor == valor:
+                    aux.anterior.proximo = aux.proximo
+                    break;
+
+
+    # lista dinamica
     def show(self):
         aux = self.inicio
         print("[", end='')
